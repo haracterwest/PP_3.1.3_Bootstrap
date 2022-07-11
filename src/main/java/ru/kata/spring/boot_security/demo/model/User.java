@@ -25,17 +25,19 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "password")
+    private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "age")
+    private Integer age;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -46,12 +48,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return name;
     }
 
     @Override
