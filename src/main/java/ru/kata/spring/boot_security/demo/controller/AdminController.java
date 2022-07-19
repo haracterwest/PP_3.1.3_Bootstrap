@@ -25,8 +25,10 @@ public class AdminController {
     public String getAllUsers(Model model, Principal principal) {
         List<User> users = userService.findAll();
         User user = userService.getUserByName(principal.getName());
+        User newU = new User();
         model.addAttribute("users", users);
-        model.addAttribute("user", user);
+        model.addAttribute("currentUser", user);
+        model.addAttribute("user", newU);
         model.addAttribute("allroles", roleService.getRoles());
         return "admin";
     }
@@ -35,7 +37,7 @@ public class AdminController {
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("allroles", roleService.getRoles());
-        return "admin/user-create";
+        return "admin";
     }
 
     @PostMapping()

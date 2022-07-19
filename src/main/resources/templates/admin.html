@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:margin-top="http://www.w3.org/1999/xhtml">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,13 +30,13 @@
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" th:utext="${user.getEmail()}">with roles: </a>
+                <a class="nav-link" th:utext="${currentUser.getEmail()}">with roles: </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link">with roles: </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" th:utext="${user.getRolesToString()}">Notifications</a>
+                <a class="nav-link" th:utext="${currentUser.getRolesToString()}">Notifications</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -58,12 +59,15 @@
 
 <!-- Разметка  -->
 
-<div class="row" style="">
+<div class="row"  >
 
-    <div class="  col-md-2">
+    <div class="  col-md-2" style="height: 100px;" >
         <ul class="nav flex-column nav-pills ">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="/admin">Admin</a>
+            <li class="nav-item" >
+
+                <div style="margin-top: 35px;" >
+                <a class="nav-link active" data-toggle="tab" href="/admin" >Admin</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/user">User</a>
@@ -277,24 +281,24 @@
 
 
                 <div class="container bg-white text-center p-3">
-                    <form th:method="POST" th:action="@{/admin}" th:object="${user}"
+                    <form th:method="POST" th:action="@{/admin}" th:object="${user}" autocomplete="off"
                           style="width: 300px;"
                           class="form-signin mx-auto font-weight-bold">
                         <p>
                             <label>Name</label>
-                            <input class="form-control form-control-sm" type="text"
+                            <input class="form-control form-control-sm" type="text" autocomplete="off"
                                    th:field="*{name}" placeholder="First name" required autofocus>
                         </p>
                         <p>
                             <label>Email</label>
-                            <input class="form-control form-control-sm" type="text" required
+                            <input class="form-control form-control-sm" type="text" required autocomplete="off"
                                    th:field="*{email}" placeholder="Last name">
                         </p>
 
                         <p>
                             <label>Password</label>
                             <input class="form-control form-control-sm" type="password"
-                                   th:field="*{password}" placeholder="Password" required>
+                                   th:field="*{password}" placeholder="Password" required autocomplete="off">
                         </p>
 
                         <p>
