@@ -39,20 +39,22 @@
                 <a class="nav-link" th:utext="${currentUser.getRolesToString()}">Notifications</a>
             </li>
 
-            <li class="nav-item dropdown">
+<!--            <li class="nav-item dropdown">-->
 
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
+<!--                <div class="dropdown-menu" aria-labelledby="dropdown01">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                </div>-->
+<!--            </li>-->
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
 
-            <a class="dropdown-item" href="/logout">Logout</a>
+            <a class="nav-link disabled" href="/logout">Logout</a>
+
         </form>
+
     </div>
 </nav>
 
@@ -287,12 +289,12 @@
                         <p>
                             <label>Name</label>
                             <input class="form-control form-control-sm" type="text" autocomplete="off"
-                                   th:field="*{name}" placeholder="First name" required autofocus>
+                                   th:field="*{name}" placeholder="Name" required autofocus>
                         </p>
                         <p>
                             <label>Email</label>
                             <input class="form-control form-control-sm" type="text" required autocomplete="off"
-                                   th:field="*{email}" placeholder="Last name">
+                                   th:field="*{email}" placeholder="Email">
                         </p>
 
                         <p>
